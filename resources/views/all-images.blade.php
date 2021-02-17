@@ -16,11 +16,11 @@
                 <h1 class="display-2">All Images</h1>
             </div>
             @foreach($images as $image)
-            <div class="col-lg-4 col-sm-4 col-md-4 mb-3">
-                <?php $rasm = $image->image_path;
-                 echo $rasm; ?>
-                
-            </div>
+            <?php foreach (json_decode($image->image_path) as $picture) { ?>
+                <div class="col-lg-4 col-sm-12 col-md-6 mb-3">
+                    <img src="uploads/{{$picture}}" alt="{{$picture}}" style="width: 100%; height: auto;">
+                </div>
+            <?php } ?>
             @endforeach
         </div>
     </div>
